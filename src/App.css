@@ -1,3 +1,9 @@
+body,
+p,
+ul,
+h1 {
+  margin: 0;
+}
 .container {
   display: flex;
   padding: 25px;
@@ -21,4 +27,31 @@
 
 li {
   list-style-type: none;
+}
+
+body {
+  background: #2980b9;
+  background: -webkit-linear-gradient(to top, #ffffff, #6dd5fa, #2980b9);
+  background: linear-gradient(to top, #ffffff, #6dd5fa, #2980b9);
+  height: 100vh;
+  margin: 0 auto;
+}
+
+.container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  max-width: 64rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.left {
+  height: 100%;
+  width: 100%;
+  background: #2980b9;
+  background: -webkit-linear-gradient(to bottom, #ffffff, #6dd5fa, #2980b9);
+  background: linear-gradient(to bottom, #ffffff, #6dd5fa, #2980b9);
 }

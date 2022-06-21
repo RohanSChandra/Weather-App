@@ -26,45 +26,48 @@ function App() {
   };
   return (
     <div className="container">
-      <input
-        className="input"
-        placeholder="Enter City..."
-        onChange={(e) => setCity(e.target.value)}
-        value={city}
-        onKeyPress={getWeather}
-      />
-
-      {!weatherData.main ? (
-        <div>
-          <p>
-            Welcome to my Weather App! Please enter a City to get the weather
-          </p>
-        </div>
-      ) : (
-        <div>
-          <p>
-            {weatherData.name}, {weatherData.sys.country}
-          </p>
-          <p>{Math.round(weatherData.main.temp)}°c </p>
-          <p>Humidity: {weatherData.main.humidity}</p>
-          <p> {formattedDate}</p>
-          <ul>
-            {weatherData.weather.map((weather) => {
-              return (
-                <li key={weather}>
-                  <p>
-                    {weather.main}, {weather.description}
-                  </p>
-                  <img
-                    src={`http://openweathermap.org/img/w/${weather.icon}.png`}
-                    alt="weathericon"
-                  ></img>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      )}
+      <div className="left">
+        {!weatherData.main ? (
+          <div>
+            <p>
+              Welcome to my Weather App! Please enter a City to get the weather
+            </p>
+          </div>
+        ) : (
+          <div>
+            <p>
+              {weatherData.name}, {weatherData.sys.country}
+            </p>
+            <p>{Math.round(weatherData.main.temp)}°c </p>
+            <p>Humidity: {weatherData.main.humidity}</p>
+            <p> {formattedDate}</p>
+            <ul>
+              {weatherData.weather.map((weather) => {
+                return (
+                  <li key={weather}>
+                    <p>
+                      {weather.main}, {weather.description}
+                    </p>
+                    <img
+                      src={`http://openweathermap.org/img/w/${weather.icon}.png`}
+                      alt="weathericon"
+                    ></img>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        )}
+      </div>
+      <div className="right">
+        <input
+          className="input"
+          placeholder="Another location"
+          onChange={(e) => setCity(e.target.value)}
+          value={city}
+          onKeyPress={getWeather}
+        />
+      </div>
     </div>
   );
 }
