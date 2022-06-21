@@ -16,8 +16,9 @@ function App() {
         `https://api.openweathermap.org/data/2.5/weather?lat=${longlatresponse[0].lat}&lon=${longlatresponse[0].lon}&appid=${apiKey}&units=metric`
       );
       const weather = await weatherResponse.json();
-      setCity("");
       console.log(weather);
+      setCity("");
+      setWeatherData(weather);
     }
   };
   return (
@@ -30,7 +31,7 @@ function App() {
         onKeyPress={getWeather}
       />
 
-      {typeof weatherData.main === "undefined" ? (
+      {!weatherData.main ? (
         <div>
           <p>
             Welcome to my Weather App! Please enter a City to get the weather
@@ -38,9 +39,25 @@ function App() {
         </div>
       ) : (
         <div>
-          <p>{weatherData.name}</p>
-          <p></p>
-          <p></p>
+          <p>
+            {weatherData.name}, {weatherData.sys.country}
+          </p>
+          <p>{Math.round(weatherData.main.temp)}°c </p>
+          <ul>
+            {weatherData.weather.map((weather) => {
+              return (
+                <li key={weather}>
+                  <p>
+                    {weather.main}, {weather.description}
+                  </p>
+                  <img
+                    src={`http://openweathermap.org/img/w/${weather.icon}.png`}
+                    alt="weathericon"
+                  ></img>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       )}
     </div>
