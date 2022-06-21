@@ -1,10 +1,13 @@
 import "./App.css";
 import React, { useState } from "react";
+import moment from "moment";
 
 function App() {
   const apiKey = "4856d71a9297ddfb8f3214ae678713af";
   const [weatherData, setWeatherData] = useState([{}]);
   const [city, setCity] = useState("");
+
+  const formattedDate = moment().format("h:mm a - dddd, Do MMMM YYYY ");
 
   const getWeather = async (e) => {
     if (e.key === "Enter") {
@@ -43,6 +46,8 @@ function App() {
             {weatherData.name}, {weatherData.sys.country}
           </p>
           <p>{Math.round(weatherData.main.temp)}°c </p>
+          <p>Humidity: {weatherData.main.humidity}</p>
+          <p> {formattedDate}</p>
           <ul>
             {weatherData.weather.map((weather) => {
               return (
