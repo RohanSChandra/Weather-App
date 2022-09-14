@@ -1,9 +1,9 @@
 import "./App.css";
 import React, { useState } from "react";
 import moment from "moment";
+import apiKey from "./API_KEY";
 
 function App() {
-  const apiKey = "4856d71a9297ddfb8f3214ae678713af";
   const [weatherData, setWeatherData] = useState([{}]);
   const [city, setCity] = useState("");
 
