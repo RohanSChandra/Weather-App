@@ -34,13 +34,15 @@ function App() {
             </p>
           </div>
         ) : (
-          <div>
-            <p>
-              {weatherData.name}, {weatherData.sys.country}
-            </p>
-            <p>{Math.round(weatherData.main.temp)}°c </p>
-            <p>Humidity: {weatherData.main.humidity}</p>
-            <p> {formattedDate}</p>
+          <div className="sideProfile">
+            <div className="degreesStyle">
+              <h1>{Math.round(weatherData.main.temp)}°c </h1>
+            </div>
+            <div>
+              <p>{weatherData.name}</p>
+              {/* <p>Humidity: {weatherData.main.humidity}</p> */}
+              <p> {formattedDate}</p>
+            </div>
             <ul>
               {weatherData.weather.map((weather) => {
                 return (

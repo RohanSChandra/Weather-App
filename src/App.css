@@ -4,13 +4,6 @@ ul,
 h1 {
   margin: 0;
 }
-.container {
-  display: flex;
-  padding: 25px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 
 .input {
   padding: 15px;
@@ -46,6 +39,7 @@ body {
   max-width: 64rem;
   display: grid;
   grid-template-columns: 2fr 1fr;
+  height: 500px;
 }
 
 .left {
@@ -54,4 +48,22 @@ body {
   background: #2980b9;
   background: -webkit-linear-gradient(to bottom, #ffffff, #6dd5fa, #2980b9);
   background: linear-gradient(to bottom, #ffffff, #6dd5fa, #2980b9);
+  display: flex;
+  align-items: flex-end;
+}
+
+.sideProfile {
+  display: flex;
+  justify-content: space-around;
+}
+
+.degreesStyle {
+  margin-top: 30px;
+  margin-right: 100px;
+}
+
+.right {
+  height: 100%;
+  width: 100%;
+  background: #2980b9;
 }
