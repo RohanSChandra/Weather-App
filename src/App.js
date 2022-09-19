@@ -7,7 +7,7 @@ function App() {
   const [weatherData, setWeatherData] = useState([{}]);
   const [city, setCity] = useState("");
 
-  const formattedDate = moment().format("h:mm a - dddd, Do MMMM YYYY ");
+  const formattedDate = moment().format("h:mm a - dddd, Do MMMM 'YY ");
 
   const getWeather = async (e) => {
     if (e.key === "Enter") {
@@ -36,10 +36,12 @@ function App() {
         ) : (
           <div className="sideProfile">
             <div className="degreesStyle">
-              <h1>{Math.round(weatherData.main.temp)}°c </h1>
+              <h1 className="degrees">
+                {Math.round(weatherData.main.temp)}°c{" "}
+              </h1>
             </div>
             <div>
-              <p>{weatherData.name}</p>
+              <p className="weatherName">{weatherData.name}</p>
               {/* <p>Humidity: {weatherData.main.humidity}</p> */}
               <p> {formattedDate}</p>
             </div>
@@ -47,13 +49,11 @@ function App() {
               {weatherData.weather.map((weather) => {
                 return (
                   <li key={weather}>
-                    <p>
-                      {weather.main}, {weather.description}
-                    </p>
                     <img
                       src={`http://openweathermap.org/img/w/${weather.icon}.png`}
                       alt="weathericon"
                     ></img>
+                    <p>{weather.main}</p>
                   </li>
                 );
               })}

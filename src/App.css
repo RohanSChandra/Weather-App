@@ -8,14 +8,18 @@ h1 {
 .input {
   padding: 15px;
   width: 80%;
-  margin: auto;
   border: 1px solid lightgray;
   font-size: 16px;
   border-radius: 6px;
+  margin-top: 1rem;
+  all: unset;
+  color: white;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
 }
-
-.input:focus {
-  outline: none;
+input::placeholder {
+  color: lightgray;
 }
 
 li {
@@ -54,11 +58,9 @@ body {
 
 .sideProfile {
   display: flex;
-  justify-content: space-around;
 }
 
 .degreesStyle {
-  margin-top: 30px;
   margin-right: 100px;
 }
 
@@ -66,4 +68,9 @@ body {
   height: 100%;
   width: 100%;
   background: #2980b9;
+  text-align: center;
+}
+
+.weatherName {
+  text-align: center;
 }
